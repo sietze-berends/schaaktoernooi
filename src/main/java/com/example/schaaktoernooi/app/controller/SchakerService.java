@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.LocalDate;
+import java.util.Optional;
 
 @Service
 @Transactional
@@ -32,5 +33,15 @@ public class SchakerService {
 
     public void verwijderSchakerService(Long id) {
         schakerRepository.deleteById(id);
+    }
+
+    public void plus(String ins) {
+        String instructies[] = ins.split("-");
+        System.out.println(instructies[0]);
+        System.out.println(instructies[1]);
+        Optional<Schaker> schakerOptional = schakerRepository.findById(Long.valueOf(instructies[1]));
+        Schaker schaker = schakerOptional.get();
+        schaker.plus(instructies[0]);
+        schakerRepository.save(schaker);
     }
 }

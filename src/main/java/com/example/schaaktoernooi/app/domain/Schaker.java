@@ -24,6 +24,7 @@ public class Schaker {
     public Schaker() {
 
     }
+
     public Schaker(String voornaam, String achternaam, String tussenvoegsel, LocalDate geboortedatum) {
         this.voornaam = voornaam;
         this.achternaam = achternaam;
@@ -96,5 +97,19 @@ public class Schaker {
 
     public void setVerlorenPartijen(int verlorenPartijen) {
         this.verlorenPartijen = verlorenPartijen;
+    }
+
+    public void plus(String type) {
+        switch (type) {
+            case "gewonnen":
+                this.gewonnenPartijen++;
+                break;
+            case "remise":
+                this.remises++;
+                break;
+            case "verloren":
+                this.verlorenPartijen++;
+                break;
+        }
     }
 }

@@ -24,8 +24,13 @@ public class SchakerEndpoint {
         schakerService.schakerToevoegenService(schakerDTO);
     }
 
-    @DeleteMapping("schakerverwijderen/{id}")
+    @DeleteMapping("/schakerverwijderen/{id}")
     public void verwijderSchaker(@PathVariable Long id) {
         schakerService.verwijderSchakerService(id);
+    }
+
+    @PostMapping("/plus/{instructies}")
+    public void plus(@PathVariable String instructies) {
+        schakerService.plus(instructies);
     }
 }
