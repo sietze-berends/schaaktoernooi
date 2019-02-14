@@ -17,12 +17,44 @@
     <br>
     <br>
 </div>
-<div class='container'>
-    <button id=toonAlleSchakers>Toon alle schakers</button>
+<div class='row'>
+    <div class='container'>
+        <button id=toonAlleSchakers>Toon alle schakers</button>
 
-    <div id='allContent'></div>
+        <div id='allContent'></div>
+    </div>
+
+    <div class='container'>
+        <form id = schakerToevoegenForm>
+
+            <label for="voornaam">Voornaam</label>
+            <input id="voornaam" type="text" name ="voornaam" value="Voornaam">
+            <br>
+
+            <label for="tussenvoegsel">Tussenvoegsel</label>
+            <input type="text" id="tussenvoegsel" name ="tussenvoegsel" value="Tussenvoegsel">
+            <br>
+
+            <label for="achternaam">Achternaam</label>
+            <input type="text" id="achternaam" name="achternaam" value="Achternaam">
+            <br>
+
+            <label for="geboortedatum">Voornaam</label>
+            <input type="date" id="geboortedatum" name="geboortedatum" value = '1980-08-22'>
+            <br>
+
+            <br>
+            <input id = "bevestigSchaker" type="submit" value = "Schaker toevoegen">
+        </form>
+    </div>
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+        integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+        integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+        crossorigin="anonymous"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
 <script src="../js/script.js"></script>
 </html>
