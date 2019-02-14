@@ -1,4 +1,21 @@
 $(document).ready(function () {
+    vulMogelijkeSchakers()
+
+    function vulMogelijkeSchakers() {
+        $.ajax({
+            type: 'get',
+            url: 'api/schakers',
+            success: function (schakers) {
+                $("#speler1").empty()
+                $("#speler2").empty()
+                $.each(schakers, function (index, value) {
+                    $("#speler1").append('<option value = "' + value.id + ' - ' + value.voornaam + ' ' + value.achternaam + '">')
+                    $("#speler2").append('<option value = "' + value.id + ' - ' + value.voornaam + ' ' + value.achternaam + '">')
+                })
+            }
+        })
+    }
+
     function schakersOphalen() {
         $.ajax({
             type: "get",
@@ -14,7 +31,6 @@ $(document).ready(function () {
 
     $('#schakerToevoegenForm').submit(function (event) {
         var $schakerForm = $(this).serializeArray();
-        console.log($schakerForm)
         var $submitSchaker = {};
         $($schakerForm).each(function (i, field) {
             $submitSchaker[field.name] = field.value
@@ -26,6 +42,7 @@ $(document).ready(function () {
             contentType: "application/json"
         }).done(function () {
             schakersOphalen()
+            vulMogelijkeSchakers()
         });
         return false
     });
@@ -42,18 +59,17 @@ $(document).ready(function () {
     });
 
     $(document).on('click', '#gewonnenPlus', function () {
-        var id = $(this).parent().find('#schakerid').text();
-        console.log($('$schakerid'))
+        var id = $(this).parent().prev('td').prev().prev().prev().prev().prev().text();
         plus("gewonnen", id);
     })
 
     $(document).on('click', '#remisePlus', function () {
-        var id = $(this).parent().find('#schakerid').text();
+        var id = $(this).parent().prev('td').prev().prev().prev().prev().prev().prev().prev().text();
         plus("remise", id);
     })
 
     $(document).on('click', '#verlorenPlus', function () {
-        var id = $(this).parent().find('#schakerid').text();
+        var id = $(this).parent().prev('td').prev().prev().prev().prev().prev().prev().prev().prev().prev().text();
         plus("verloren", id);
     })
 
@@ -98,9 +114,9 @@ $(document).ready(function () {
             content += '<td>' + value.gewonnenPartijen + '</td>';
             content += '<td><button id = "gewonnenPlus">+</button></td>'
             content += '<td>' + value.remises + '</td>';
-            content += '<td><button id = "remisePluse">+</button></td>'
+            content += '<td><button id = "remisePlus">+</button></td>'
             content += '<td>' + value.verlorenPartijen + '</td>';
-            content += '<td><button id = "verwijderPlus">+</button></td>'
+            content += '<td><button id = "verlorenPlus">+</button></td>'
             content += "</tr>";
         })
 

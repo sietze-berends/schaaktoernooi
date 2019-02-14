@@ -20,11 +20,15 @@
 <div class='row'>
     <div class='container'>
         <button id=toonAlleSchakers>Toon alle schakers</button>
+        <button id = toonAlleWedstrijden>Toon alle wedstrijden</button>
 
         <div id='allContent'></div>
     </div>
 
     <div class='container'>
+        <br>
+        <br>
+        <br>
         <form id = schakerToevoegenForm>
 
             <label for="voornaam">Voornaam</label>
@@ -39,12 +43,34 @@
             <input type="text" id="achternaam" name="achternaam" value="Achternaam">
             <br>
 
-            <label for="geboortedatum">Voornaam</label>
+            <label for="geboortedatum">Geboortedatum</label>
             <input type="date" id="geboortedatum" name="geboortedatum" value = '1980-08-22'>
             <br>
 
-            <br>
             <input id = "bevestigSchaker" type="submit" value = "Schaker toevoegen">
+        </form>
+
+        <br>
+        <br>
+        <br>
+        <form id = wedstrijdAanmakenForm>
+
+            <label for="speler1">Schaker 1</label>
+            <input list = "speler1" type="text" name ="speler1" placeholder="Schaker 1">
+            <datalist id="speler1"></datalist>
+            <br>
+
+            <label for="speler2">Schaker 2</label>
+            <input list="speler2" type="text" name ="speler2" placeholder="Schaker 2">
+            <datalist id="speler2"></datalist>
+            <br>
+
+            <label for="datum">Datum</label>
+            <input type="date" id="datum" name="datum" value = '2019-03-01'>
+            <br>
+
+            <input id = "bevestigWedstrijd" type="submit" value = "Wedstrijd toevoegen">
+
         </form>
     </div>
 </div>
@@ -56,5 +82,6 @@
         integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
         crossorigin="anonymous"></script>
 <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.js"></script>
-<script src="../js/script.js"></script>
+<script src="../js/schaker.js"></script>
+<script src="../js/wedstrijd.js"></script>
 </html>

@@ -112,4 +112,18 @@ public class Schaker {
                 break;
         }
     }
+
+    @Override
+    public String toString() {
+        return "Schaker{" +
+                "id=" + id +
+                ", voornaam='" + voornaam + '\'' +
+                ", achternaam='" + achternaam + '\'' +
+                ", tussenvoegsel='" + tussenvoegsel + '\'' +
+                ", geboortedatum=" + geboortedatum +
+                ", gewonnenPartijen=" + gewonnenPartijen +
+                ", remises=" + remises +
+                ", verlorenPartijen=" + verlorenPartijen +
+                '}';
+    }
 }
